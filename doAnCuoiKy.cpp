@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <conio.h>
+#include <mylib.h>
 
 using namespace std;
 
@@ -215,8 +216,34 @@ class DanhSachMayBay{
 		}
 };
 
+void hopChon(int x, int y, int cao, int rong){
+	for(int ix = x; ix <= x+rong; ix++){
+		gotoxy(ix, y);
+		cout << char(205);
+		gotoxy(ix, y+cao);
+		cout << char(205);
+	}
+	for (int iy = y; iy <= y+cao; iy++){
+		gotoxy(x, iy);
+		cout << char(186);
+		gotoxy(x+rong, iy);
+		cout << char(186);
+	}
+	gotoxy(x, y);
+	cout << char(201);
+	gotoxy(x+rong, y);
+	cout << char(187);
+	gotoxy(x, y+cao);
+	cout << char(200);
+	gotoxy(x+rong, y+cao);
+	cout << char(188);
+	cout << endl;
+}
+		
 void danhSachChucNangMayBay(){
-	cout << "//DANH SACH CHUC NANG//\n";
+	gotoxy(30, 2);
+	cout << "DANH SACH CHUC NANG" << endl;
+	hopChon(20, 4, 5, 40);
 	cout << "1. Them may bay vao danh sach\n";
 	cout << "2. Xuat danh sach may bay\n";
 	cout << "3. Xoa may bay\n";
@@ -228,7 +255,7 @@ void danhSachChucNangMayBay(){
 void chonChucNangMayBay(){
 	DanhSachMayBay ds;
 	while(true){
-		danhSachChucNang();
+		danhSachChucNangMayBay();
 		char luaChon = getch();
 		system("cls");
 		switch(luaChon){
