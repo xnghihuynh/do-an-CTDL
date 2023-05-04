@@ -49,11 +49,9 @@ bool DeleteFollowIDFlight(FlightList &FL, const char *MaChuyenBayCanXoa); // xoa
 bool ClearFlightList(FlightList &FL); // xoa bo nho 
 void StatusFlight(FlightList &FL); // tu dong cap nhat trang thai cbay
 void TicketChairBoard(Flight F); // hien thi bang ghe ve cua 1 cbay
-//void EffectTicketMenu (int index,int PreColor)// hieuung menu 
 int ChooseTicket(Flight &F ); // chon 1 ve tu cbay
 void ShowFlight(Flight F, int position ); // show 1cb
 void ShowFlightList(FlightList FL ); // show ds cbay
-void ShowFlightListPerPage(FlightList FL, int StartIndex); // show theo trang
 void ChangePageManageFlightList(FlightList FL ); // doi trang khi quanly cbay
 bool FlightDataIsEmpty(Flight F); // ktra dulieu cua chuyen bay rong or not
 void InputFlight(FlightList &FL,bool EditedOrNot = false, bool DeleteOrNot=false); // nhap info cho 1 bay + them vao ds , xoa or sua maybay hien co
