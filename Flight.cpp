@@ -55,7 +55,7 @@ void InsertFristList(FlightList &FL, Flight Data)
 void InsertLastList(FlightList &FL, Flight Data)
 {
 	FlightNode *tempo = CreateFlightNode (Data);
-	if (FL.pHead=NULL)
+	if (FL.pHead==NULL)
 	{
 		FL.pHead = FL.pTail=tempo;
 	}
