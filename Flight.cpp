@@ -1,6 +1,7 @@
 #include"ThuVienTime.h"
 #include"thuvienFlight.h"
 #include"Filetong.h"
+#include"Ticket.h"
 
 // ham nay co ben Nghi roi nhung van viet 
 void InputFlight(Flight &F) {
@@ -22,7 +23,7 @@ void KhoiTaoFlight(Flight &F)
 {
 	F.TongSoVe = 0;
 	F.TongSoVeDaBan=0;
-	//F.TicketList = new Ticket[100]; // cap phat mang dong
+	F.TicketList = new Ticket[100]; // cap phat mang dong
 	F.TrangThai=2; // 1:huy, 2 con, 3 het , 4 hoan tat 
 	
 }
@@ -246,4 +247,42 @@ void StatusFlight(FlightList &FL)
 			// 1 huy, 2 con, 3 het , 4 done;
 	}
 } 
+int CheckOut( Flight F , int x )
+{
+	for (int i =0; i < F.TongSoVeDaBan;i++)
+	{ 
+		if ( x==F.TicketList[i].Status)
+		{
+			return 1; // = 1 la co ng da dat 
+		}	
+	}
+	return 0 ; // kh co trang thai ve tuong ung
+}
+void ShowFlight (Flight F)
+{
+	std:: string trangThai;
+	switch(F.TrangThai)
+	{
+		case 1: trangThai= "HUY";
+			break;
+		case 2: trangThai= "CON VE";
+			break;
+		case 3: trangThai= "HET VE";
+			break;
+		case 4: trangThai= "HOAN TAT";
+			break;
+		default;
+			break;
+	}
+	cout << left
+	     << setw(17) <<F.MaChuyenBay
+	     << setw(20) <<F.SanBayDen
+	     << setw(15) <<F.SoHieuMB
+	     << setw(20) << OutputDateTime(F.ThoiGianDi)
+	     << setw(10) << F.TongSoVe
+	     <<setw(10) << trangThai
+	     << endl;
+	
+}
+
 
